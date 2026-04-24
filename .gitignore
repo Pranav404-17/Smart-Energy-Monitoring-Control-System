@@ -144,6 +144,7 @@ node_modules/
 **/node_modules/
 **/__pycache__/
 *.pyc
+*.csv
 .env
 .venv
 env/

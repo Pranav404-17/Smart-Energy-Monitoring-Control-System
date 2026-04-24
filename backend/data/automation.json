@@ -1,1 +1,11 @@
-{}
+{
+  "262bcf9f-3a3e-4084-96f7-70330a983c9d": {
+    "name": "Night Mode",
+    "rule_type": "schedule",
+    "device_id": "55d73871-17ba-42bd-9d3e-c2b0228e9377",
+    "schedule": "20:40",
+    "action": "on",
+    "threshold": 0,
+    "active": true
+  }
+}

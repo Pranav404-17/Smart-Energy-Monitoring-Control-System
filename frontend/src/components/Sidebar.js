@@ -60,17 +60,6 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* User profile section */}
-      <div className="mt-auto border-t pt-4">
-        <div className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors">
-          <div className="h-9 w-9 rounded-full bg-slate-200 flex items-center justify-center font-medium text-slate-600 text-sm ring-1 ring-slate-900/5">
-            US
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-medium text-slate-900">User Profile</span>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

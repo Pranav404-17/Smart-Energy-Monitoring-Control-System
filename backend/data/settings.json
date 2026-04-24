@@ -1,13 +1,13 @@
 {
   "global": {
     "user": {
-      "email": "admin@smartenergy.com",
-      "name": "Admin"
+      "name": "Admin",
+      "email": "admin@smartenergy.com"
     },
     "rate": 0.15,
     "notifications": {
-      "email": false,
-      "push": false,
+      "email": true,
+      "push": true,
       "sms": false
     }
   }

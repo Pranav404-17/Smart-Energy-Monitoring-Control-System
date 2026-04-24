@@ -8,14 +8,14 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.join(BASE_DIR, '..')
 BACKEND_DIR = os.path.join(ROOT_DIR, 'backend')
 DATA_DIR = os.path.join(BACKEND_DIR, 'data')
-DATASET_PATH = os.path.join(ROOT_DIR, 'household_power_consumption.txt')
+DATASET_PATH = os.path.join(ROOT_DIR, 'energy_500_rows.csv')
 
 def inject_dataset():
     if not os.path.exists(DATASET_PATH):
         print(f"Error: {DATASET_PATH} not found.")
         return
 
-    print("Parsing household_power_consumption.txt...")
+    print("Parsing energy_500_rows.csv...")
     
     # We will take the last 30 days of data from the file
     # But since the file is large, we'll read only a portion or use a limited window.
@@ -41,7 +41,7 @@ def inject_dataset():
     start_time = now - timedelta(days=30)
     
     with open(DATASET_PATH, 'r') as f:
-        reader = csv.DictReader(f, delimiter=';')
+        reader = csv.DictReader(f, delimiter=',')
         count = 0
         max_rows = 30 * 24 * 60 # 30 days at 1 min intervals
         
