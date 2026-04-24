@@ -61,6 +61,7 @@ def inject_dataset():
                 energy_data[str(uuid.uuid4())] = {
                     'timestamp': ts_str,
                     'usage': round(usage_kwh, 4),
+                    'power': round(gap, 4), # Power in kW
                     'cost': round(usage_kwh * 0.15, 4)
                 }
                 
@@ -75,6 +76,7 @@ def inject_dataset():
                         'device_name': device['name'],
                         'room': device['room'],
                         'usage': round(sm_kwh, 4),
+                        'power': round(sm_val / 60.0, 4), # Approximate power if sm_val is Wh? Wait, usually sm is Wh.
                         'cost': round(sm_kwh * 0.15, 4)
                     }
                     

@@ -56,7 +56,7 @@ def check_threshold():
     latest = None
     for doc in docs:
         latest = doc.to_dict()
-    if latest and latest.get('usage', 0) > threshold:
+    if latest and latest.get('power', latest.get('usage', 0)) > threshold:
         ref = db.collection('alerts').document()
         ref.set({
             'message': f"Usage exceeded threshold: {latest['usage']} kW",

@@ -1,17 +1,17 @@
 {
-  "87e6c7d6-2676-4762-9a8e-610b77899d40": {
+  "a03f8751-44da-4a28-b9dd-1786e0905571": {
     "name": "Microwave & Oven",
     "room": "Kitchen",
     "status": "on",
     "energy_consumption": 1.2
   },
-  "57c740e9-d988-464b-97ac-5130f54fdd49": {
+  "4451f352-7fba-42f1-92e9-4d21c9041a4a": {
     "name": "Washing Machine",
     "room": "Bathroom",
     "status": "on",
     "energy_consumption": 0.8
   },
-  "55d73871-17ba-42bd-9d3e-c2b0228e9377": {
+  "91a64213-2488-400e-a6ba-0c185d965260": {
     "name": "AC & Water Heater",
     "room": "Bedroom",
     "status": "on",

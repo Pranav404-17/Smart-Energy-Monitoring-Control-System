@@ -36,11 +36,13 @@ export default function Alerts() {
   const handleDelete = async (id) => {
     await deleteAlert(id);
     fetchAlerts();
+    window.dispatchEvent(new CustomEvent('alertsChanged'));
   };
 
   const handleCheck = async () => {
     await checkThreshold({ threshold });
     fetchAlerts();
+    window.dispatchEvent(new CustomEvent('alertsChanged'));
   };
 
   const filteredAlerts = alerts.filter(a => {

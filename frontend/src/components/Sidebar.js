@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, 
@@ -10,6 +10,7 @@ import {
   Activity
 } from 'lucide-react'
 import { cn } from '../lib/utils'
+import { getAlertStats } from '../services/api'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
@@ -22,6 +23,28 @@ const navigation = [
 
 export default function Sidebar() {
   const location = useLocation()
+  const [unreadCount, setUnreadCount] = useState(0)
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const { data } = await getAlertStats()
+        setUnreadCount(data.unread || 0)
+      } catch (error) {
+        console.error('Failed to fetch alert stats:', error)
+      }
+    }
+
+    fetchStats()
+    const interval = setInterval(fetchStats, 10000) // Poll every 10 seconds
+    
+    window.addEventListener('alertsChanged', fetchStats)
+    
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener('alertsChanged', fetchStats)
+    }
+  }, [])
 
   return (
     <div className="flex h-screen w-[260px] flex-col border-r bg-white px-4 py-8">
@@ -55,6 +78,11 @@ export default function Sidebar() {
                 )}
               />
               {item.name}
+              {item.name === 'Alerts' && unreadCount > 0 && (
+                <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm animate-pulse">
+                  {unreadCount}
+                </span>
+              )}
             </NavLink>
           )
         })}
