@@ -1,0 +1,8 @@
+node_modules/
+frontend/node_modules/
+__pycache__/
+*.pyc
+.env
+.cache/
+*.log
+household_power_consumption.txt

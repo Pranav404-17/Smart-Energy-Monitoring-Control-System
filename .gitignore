@@ -137,3 +137,16 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Project Specific
+household_power_consumption.txt
+node_modules/
+**/node_modules/
+**/__pycache__/
+*.pyc
+.env
+.venv
+env/
+venv/
+venv.bak/
+.DS_Store
